@@ -54,7 +54,7 @@
                                             {{ $link->visits_count }}
                                         </td>
                                         <td class="px-6 py-4">
-                                            Aug 4, 2022 - 12:30pm
+                                            {{ $link->latest_visit ? $link->latest_visit->created_at->format('M j Y - H:ia') : 'N/A' }}
                                         </td>
                                         <td class="px-6 py-4 text-right">
                                             <a href="{{ route('links.edit', ['link' => $link['id']]) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>

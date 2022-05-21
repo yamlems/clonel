@@ -12,6 +12,23 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                user-select: none;
+            }
+
+            @media (min-width: 768px) {
+                .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+                }
+            }
+        </style>
+        <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/headers.css') }}"
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>

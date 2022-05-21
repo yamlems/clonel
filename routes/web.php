@@ -3,9 +3,6 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\UserController;
-use App\Models\Link;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('links', LinkController::class)->except(['index', 'show']);
@@ -29,9 +26,10 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     // Route::view('/', 'dashboard', ['links' => Link::all()])->name('dashboard');
 });
 
-// Route::get('/{user}', [UserController::class, 'show']);
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/{user}', [UserController::class, 'show']);
